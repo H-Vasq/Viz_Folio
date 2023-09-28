@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>H-Vasq Coursework</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="navbar">
+            <div class="top">
+                <div class="left">2023 Vizcom Art by Rik Vasquez</div>
+                <div class="contact">motionbuilder[AT]yahoo.com</div>
+            </div>
+        </header>
+        <div class="project-grid">
+            <div class="project" id="eth">
+                <img src="images/RVasq_folio01.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="alphabet">
+                <img src="images/RVasq_folio02.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="traveler">
+                <img src="images/RVasq_folio03.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="astro">
+                <img src="images/RVasq_folio04.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="cube">
+                <img src="images/RVasq_folio05.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="insta">
+                <img src="images/RVasq_folio06.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="cup">
+                <img src="images/RVasq_folio07.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="foam">
+                <img src="images/RVasq_folio08.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+            <div class="project" id="dimensional">
+                <img src="images/RVasq_folio09.png" alt="">
+                <p class="overlay">VIEW PROJECT</p>
+            </div>
+        </div>
+        
+            <!-- Add more project elements here -->
+        </div>
+        <footer class="footer">2023 Vizcom Art by Rik Vasquez</footer>
+    </div>
+
+    <!-- Add a modal container -->
+    <div id="image-modal" class="modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modal-image" src="" alt="Modal Image">
+    </div>
+
+    <script>
+        // Get all project elements
+        const projectElements = document.querySelectorAll('.project');
+
+        // Get modal and modal content elements
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+
+        // Function to open the image modal
+        function openImageModal(event) {
+            const project = event.currentTarget;
+            const image = project.querySelector('img');
+
+            // Set the image source in the modal
+            modalImage.src = image.src;
+
+            // Show the modal
+            modal.style.display = 'block';
+
+            // Hide the "View Project" text
+            project.querySelector('.overlay').style.opacity = 0;
+        }
+
+        // Function to close the image modal
+        function closeImageModal() {
+            // Hide the modal
+            modal.style.display = 'none';
+
+            // Show the "View Project" text on hover
+            projectElements.forEach((project) => {
+                project.querySelector('.overlay').style.opacity = 0;
+            });
+        }
+
+        // Add click event listeners to all project elements
+        projectElements.forEach((project) => {
+            project.addEventListener('click', openImageModal);
+
+            // Show the "View Project" text on hover
+            project.addEventListener('mouseenter', () => {
+                project.querySelector('.overlay').style.opacity = 1;
+            });
+
+            // Hide the "View Project" text when not hovering
+            project.addEventListener('mouseleave', () => {
+                project.querySelector('.overlay').style.opacity = 0;
+            });
+        });
+    </script>
+</body>
+</html>
